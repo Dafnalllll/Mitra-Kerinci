@@ -86,7 +86,7 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[99vw] max-w-6xl rounded-2xl shadow-xl flex items-center px-4 md:px-16 py-4 z-50 border border-green-200 bg-white"
+      className="fixed top-4 left-0 w-full md:left-1/2 md:transform md:-translate-x-1/2 md:max-w-6xl rounded-2xl shadow-xl flex items-center px-4 md:px-16 py-4 z-50 border border-green-200 bg-white"
       style={{
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",

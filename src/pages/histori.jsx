@@ -71,9 +71,9 @@ export default function Histori() {
                 ></div>
               </div>
               {/* Card */}
-              <div className="w-full md:w-11/12 bg-white/20 backdrop-blur-md border border-blue-200 shadow-2xl rounded-2xl px-6 py-8 flex flex-col md:flex-row gap-8 items-center md:items-start relative">
+              <div className="w-full md:w-11/12 bg-white/20 backdrop-blur-md border border-blue-200 shadow-2xl rounded-2xl px-2 md:px-6 py-4 md:py-8 flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start relative">
                 {/* Images */}
-                <div className="flex gap-4">
+                <div className="flex gap-2 md:gap-4">
                   {event.images.map((img, i) => (
                     <div
                       key={img}
@@ -84,7 +84,7 @@ export default function Histori() {
                       <img
                         src={img}
                         alt={event.title + " " + (i + 1)}
-                        className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-xl border-4 border-white shadow-lg transition-transform duration-300 hover:scale-110 hover:border-blue-400 hover:shadow-2xl cursor-pointer"
+                        className="w-28 h-28 md:w-48 md:h-48 object-cover rounded-xl border-4 border-white shadow-lg transition-transform duration-300 hover:scale-110 hover:border-blue-400 hover:shadow-2xl cursor-pointer"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition duration-300 rounded-xl pointer-events-none"></div>
                     </div>
@@ -92,7 +92,7 @@ export default function Histori() {
                 </div>
                 {/* Title */}
                 <div className="flex-1 flex flex-col justify-center items-center md:items-start">
-                  <div className="text-white text-lg md:text-2xl font-bold mb-2 text-center md:text-left drop-shadow-lg">
+                  <div className="text-white text-base md:text-2xl font-bold mb-2 text-center md:text-left drop-shadow-lg">
                     {event.title}
                   </div>
                 </div>

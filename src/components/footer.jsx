@@ -17,13 +17,13 @@ export default function Footer() {
       }}
     >
       {/* Kiri: Logo, ID FOOD, Sosial Media */}
-      <div className="flex flex-col items-start gap-4 md:w-1/3">
+      <div className="flex flex-col items-center md:items-start gap-4 md:w-1/3 w-full">
         <img
           src="/mitrakerinci1.webp"
           alt="Mitra Kerinci"
-          className="h-40 w-56 drop-shadow-lg -ml-8"
+          className="h-40 w-56 drop-shadow-lg md:-ml-8 mx-auto"
         />
-        <div className="flex gap-4 mt-2">
+        <div className="flex gap-4 mt-2 justify-center md:justify-start w-full">
           <a
             href="https://www.instagram.com/mitrakerinci/"
             aria-label="Instagram"
@@ -52,24 +52,24 @@ export default function Footer() {
             <FaYoutube className="text-2xl text-blue-900 hover:text-red-500 transition-colors" />
           </a>
         </div>
-        <div className="mt-4 text-xs text-blue-700 tracking-wide">
+        <div className="mt-4 text-xs text-blue-700 tracking-wide text-center md:text-left w-full">
           &copy; {new Date().getFullYear()} Mitra Kerinci. All rights reserved.
         </div>
       </div>
       {/* Divider untuk desktop */}
       <div className="hidden md:block h-40 w-px bg-blue-300/30 mx-6 rounded-full"></div>
       {/* Kanan: Kontak & Alamat */}
-      <div className="flex-1 flex flex-col gap-4 md:items-end">
-        <div className="flex items-center gap-3">
+      <div className="flex-1 flex flex-col gap-4 md:items-end items-center w-full">
+        <div className="flex items-center gap-3 justify-center md:justify-end w-full">
           <span className="bg-blue-900 text-white px-5 py-1 rounded font-bold text-lg shadow-md tracking-wide">
             Find Us
           </span>
         </div>
-        <div>
-          <div className="text-xl font-semibold mb-2 tracking-wide text-blue-900 text-right">
+        <div className="w-full">
+          <div className="text-xl font-semibold mb-2 tracking-wide text-blue-900 text-center md:text-right">
             Kontak
           </div>
-          <div className="flex flex-wrap items-center gap-8 mb-2">
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-8 mb-2 w-full md:justify-end">
             <span className="flex items-center gap-3">
               <span className="bg-blue-900 text-white rounded-full p-3 shadow-lg">
                 <FaPhoneAlt className="text-xl" />
@@ -95,11 +95,11 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div>
-          <div className="text-xl font-semibold mb-1 tracking-wide text-blue-900 text-right">
+        <div className="w-full">
+          <div className="text-xl font-semibold mb-1 tracking-wide text-blue-900 text-center md:text-right">
             Alamat
           </div>
-          <div className="text-blue-900 font-medium leading-snug text-right">
+          <div className="text-blue-900 font-medium leading-snug text-center md:text-right">
             Kebun & Pabrik, Jorong Sungai Lambai, Nagari Lubuk Gadang Selatan.
             <br />
             Kec. Sangir, Kab. Solok Selatan, Sumatera Barat, Kode Pos 27778

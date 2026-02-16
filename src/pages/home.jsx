@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "../components/navbar.jsx";
 import Tentang from "./tentang.jsx";
 import Struktur from "./struktur.jsx";
-import Histori from "./histori.jsx"; // import Histori
+import Histori from "./histori.jsx";
 import Footer from "../components/footer.jsx";
 
 export default function Home() {
   return (
     <div
-      className="min-h-screen relative"
+      className="min-h-screen relative overflow-x-hidden"
       style={{
         backgroundImage: "url('/bg.webp')",
         backgroundSize: "cover",
@@ -23,16 +23,12 @@ export default function Home() {
         <Navbar />
         {/* Gambar di tengah dengan animasi AOS */}
         <div className="flex justify-center items-center min-h-[78vh]">
-          <div className="mt-20">
+          <div className="mt-20 w-full flex justify-center">
             <img
               src="/mitrakerinci1.webp"
               alt="Mitra Kerinci"
               data-aos="zoom-in"
-              style={{
-                width: "650px",
-                height: "700px",
-                objectFit: "contain",
-              }}
+              className="w-full max-w-xs md:max-w-[650px] md:h-[700px] object-contain mx-auto"
             />
           </div>
         </div>
