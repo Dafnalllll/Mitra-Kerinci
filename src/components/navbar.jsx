@@ -1,11 +1,23 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+
+  // Handler untuk Home (pindahkan ke atas sebelum navItems)
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setDropdown(false);
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
 
   // Handler untuk scroll smooth ke section tentang
   const handleTentangClick = (e) => {
@@ -132,8 +144,20 @@ function Navbar() {
     }
   };
 
+  // Lock scroll saat menu mobile terbuka
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const navItems = [
-    { to: "/", label: "Home" },
+    { to: "/", label: "Home", onClick: handleHomeClick },
     {
       label: "Tentang",
       dropdown: [
@@ -265,8 +289,8 @@ function Navbar() {
               </div>
             </li>
           ) : (
-            <li key={item.to} className="h-full flex items-center">
-              {item.label === "Produk" ? (
+            <li key={item.to} className="w-full flex items-center">
+              {item.onClick ? (
                 <button
                   onClick={item.onClick}
                   className={`group text-lg font-semibold px-4 py-2 rounded transition-all duration-300 relative text-green-800 hover:text-green-900 h-full flex items-center cursor-pointer`}
@@ -297,7 +321,7 @@ function Navbar() {
       </ul>
       {/* Mobile Menu Card */}
       <div
-        className={`fixed left-1/2 top-11/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-xs rounded-2xl shadow-2xl flex flex-col items-center py-8 px-4 transition-all duration-300 ${
+        className={`fixed left-1/2 top-8/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-xs rounded-2xl shadow-2xl flex flex-col items-center py-8 px-4 transition-all duration-300 ${
           open
             ? "scale-100 opacity-100"
             : "scale-90 opacity-0 pointer-events-none"
@@ -310,17 +334,26 @@ function Navbar() {
         <img
           src="/mitrakerinci.webp"
           alt="Logo"
-          className="w-20 h-16 mb-8 drop-shadow-lg"
+          className="w-20 h-16 mb-6 drop-shadow-lg"
         />
-        <ul className="flex flex-col gap-6 items-center w-full">
+        <ul className="flex flex-col gap-0.5 items-center w-full">
           {navItems.map((item) =>
             item.dropdown ? (
               <li className="w-full" key={item.label}>
                 <button
-                  className="block text-2xl font-bold px-8 py-3 mt-8 rounded-xl transition-all duration-300 text-center w-full text-teal-900 hover:bg-teal-100 hover:scale-105"
+                  className="flex items-center justify-between text-xl font-bold px-8 py-2 mt-2 rounded-xl transition-all duration-300 text-center w-full text-teal-900 hover:bg-teal-100 hover:scale-105"
                   onClick={() => setDropdown((v) => !v)}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <svg
+                    className={`ml-2 w-5 h-5 transition-transform duration-300 ${dropdown ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
                 {dropdown && (
                   <div className="flex flex-col w-full">
@@ -333,7 +366,7 @@ function Navbar() {
                             sub.onClick(e);
                             setDropdown(false);
                           }}
-                          className={`block px-8 py-3 text-lg text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                          className={`block px-8 py-2 text-base text-green-900 hover:bg-green-100 transition-all duration-200 ${
                             subIdx === 0 ? "rounded-t-xl" : ""
                           } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
                         >
@@ -347,7 +380,7 @@ function Navbar() {
                             setOpen(false);
                             setDropdown(false);
                           }}
-                          className={`block px-8 py-3 text-lg text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                          className={`block px-8 py-2 text-base text-green-900 hover:bg-green-100 transition-all duration-200 ${
                             subIdx === 0 ? "rounded-t-xl" : ""
                           } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
                         >
@@ -360,17 +393,25 @@ function Navbar() {
               </li>
             ) : (
               <li key={item.to} className="w-full">
-                <Link
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className={`block text-2xl font-bold px-8 py-3 mt-8 rounded-xl transition-all duration-300 text-center w-full ${
-                    location.pathname === item.to
-                      ? "text-teal-700 bg-yellow-200 shadow"
-                      : "text-teal-900 hover:bg-teal-100 hover:scale-105"
-                  }`}
-                >
-                  {item.label}
-                </Link>
+                {item.onClick ? (
+                  <button
+                    onClick={(e) => {
+                      item.onClick(e);
+                    }}
+                    className="block text-xl font-bold px-8 py-2 mt-2 rounded-xl text-center w-full text-teal-900 hover:bg-teal-100 hover:scale-105"
+                    type="button"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="block text-xl font-bold px-8 py-2 mt-2 rounded-xl text-center w-full text-teal-900"
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ),
           )}

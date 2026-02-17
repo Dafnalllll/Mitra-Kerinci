@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Loading from "./components/loading"; // import loading
+import ArrowUp from "./components/arrowup"; // import ArrowUp
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <Router>
+      <ArrowUp /> {/* Tambahkan komponen ArrowUp di sini */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
