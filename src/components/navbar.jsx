@@ -233,7 +233,7 @@ function Navbar() {
                 // Tidak perlu event, hanya untuk area hover
               ></div>
               {/* Dropdown menu */}
-              <div className="absolute left-0 mt-66 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4 hidden group-hover:block">
+              <div className="absolute left-0 mt-90 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4 hidden group-hover:block">
                 {item.dropdown.map((sub, subIdx) =>
                   sub.onClick ? (
                     <a
