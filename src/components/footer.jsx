@@ -75,7 +75,9 @@ export default function Footer() {
                 <FaPhoneAlt className="text-xl" />
               </span>
               <a
-                href="tel:+6285210082416"
+                href="https://wa.me/6285210082416"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-base font-medium text-blue-900 hover:underline"
               >
                 +62 852-1008-2416{" "}
@@ -87,7 +89,9 @@ export default function Footer() {
                 <FaEnvelope className="text-xl" />
               </span>
               <a
-                href="mailto:kesekretariatan@mitrakerinci.co.id"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=kesekretariatan@mitrakerinci.co.id"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-base font-medium text-blue-900 hover:underline"
               >
                 kesekretariatan@mitrakerinci.co.id
