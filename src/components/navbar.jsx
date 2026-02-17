@@ -224,13 +224,13 @@ function Navbar() {
             <li
               className="relative group h-full flex items-center"
               key={item.label}
-              onMouseEnter={() => setDropdown(true)}
-              onMouseLeave={() => setDropdown(false)}
             >
               <button
                 className="group text-lg font-semibold px-4 py-2 rounded transition-all duration-300 relative text-green-800 hover:text-green-900 flex items-center h-full cursor-pointer"
                 type="button"
-                style={{ lineHeight: "1.5" }} // pastikan line-height sama
+                style={{ lineHeight: "1.5" }}
+                onMouseEnter={() => setDropdown(true)}
+                onMouseLeave={() => setDropdown(false)}
               >
                 <span className="transition-all duration-300 group-hover:tracking-widest">
                   {item.label}
@@ -245,48 +245,53 @@ function Navbar() {
                   <path d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {/* Hover bridge */}
+              {/* Hover bridge tetap ada, tapi tidak memicu dropdown */}
               <div
                 className="absolute left-0"
                 style={{
                   top: "100%",
-                  height: "11rem", // sesuaikan dengan mt-48 (mt-48 = 12rem, bisa dikurangi sedikit)
-                  width: "12rem", // samakan dengan w-48
+                  height: "11rem",
+                  width: "12rem",
                   zIndex: 40,
                 }}
-                // Tidak perlu event, hanya untuk area hover
               ></div>
               {/* Dropdown menu */}
-              <div className="absolute left-0 mt-90 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4 hidden group-hover:block">
-                {item.dropdown.map((sub, subIdx) =>
-                  sub.onClick ? (
-                    <a
-                      key={sub.label}
-                      href={sub.href}
-                      onClick={sub.onClick}
-                      className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
-                        subIdx === 0 ? "rounded-t-xl" : ""
-                      } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
-                    >
-                      {sub.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={sub.label}
-                      to={sub.to}
-                      onClick={() => {
-                        setOpen(false);
-                        setDropdown(false);
-                      }}
-                      className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
-                        subIdx === 0 ? "rounded-t-xl" : ""
-                      } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
-                    >
-                      {sub.label}
-                    </Link>
-                  ),
-                )}
-              </div>
+              {dropdown && (
+                <div
+                  className="absolute left-0 mt-92 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4"
+                  onMouseEnter={() => setDropdown(true)}
+                  onMouseLeave={() => setDropdown(false)}
+                >
+                  {item.dropdown.map((sub, subIdx) =>
+                    sub.onClick ? (
+                      <a
+                        key={sub.label}
+                        href={sub.href}
+                        onClick={sub.onClick}
+                        className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                          subIdx === 0 ? "rounded-t-xl" : ""
+                        } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                      >
+                        {sub.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={sub.label}
+                        to={sub.to}
+                        onClick={() => {
+                          setOpen(false);
+                          setDropdown(false);
+                        }}
+                        className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                          subIdx === 0 ? "rounded-t-xl" : ""
+                        } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                      >
+                        {sub.label}
+                      </Link>
+                    ),
+                  )}
+                </div>
+              )}
             </li>
           ) : (
             <li key={item.to} className="w-full flex items-center">

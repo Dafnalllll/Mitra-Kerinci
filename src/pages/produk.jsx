@@ -5,26 +5,31 @@ const products = [
     name: "GREEN TEA LIKI LEGACY",
     desc: "Light & Smooth Vegetal",
     img: "/produk1.webp",
+    link: "https://s.shopee.co.id/7pnpimtz8P",
   },
   {
     name: "RED GLORY SINENSIS BLACK TEA",
     desc: "Light, Sweet Honey, Slight Caramel",
     img: "/produk2.webp",
+    link: "https://s.shopee.co.id/gKfBi6KgR",
   },
   {
     name: "GREEN TEA LIKI OPTIMUS",
     desc: "Light & Strong Vegetal",
     img: "/produk3.webp",
+    link: "https://s.shopee.co.id/4qAE9J9Y0n",
   },
   {
     name: "GREEN TEA LIKI CHA",
     desc: "Light, Vegetal, Slight Nutty",
     img: "/produk4.webp",
+    link: "https://s.shopee.co.id/9zsKIjw212",
   },
   {
     name: "WHITE TEA SILVER NEEDLE",
     desc: "Highest antioxidant and low caffeine",
     img: "/produk5.webp",
+    link: "https://s.shopee.co.id/9Uw3huvARw",
   },
 ];
 
@@ -59,7 +64,7 @@ export default function Produk() {
             className={`
               flex flex-col-reverse md:flex-row items-center
               ${i % 2 === 1 ? "md:flex-row-reverse" : ""}
-               p-4 md:p-8 gap-6 md:gap-12
+                p-4 md:p-8 gap-6 md:gap-12
             `}
             data-aos={i % 2 === 0 ? "fade-right" : "fade-left"}
           >
@@ -80,6 +85,29 @@ export default function Produk() {
               </div>
               <div className=" text-blue-200 font-semibold italic px-4 py-2  text-base md:text-lg text-center md:text-left">
                 • {prod.desc}
+              </div>
+              {/* Tombol Beli Sekarang */}
+              <div
+                data-aos="zoom-in"
+                data-aos-duration="700"
+                data-aos-delay="200"
+                className="w-full flex justify-center md:justify-start"
+              >
+                <a
+                  href={prod.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block bg-[#2b6cb0] hover:bg-[#1e4a7a] text-white font-bold py-2 px-6 rounded-full shadow transition-transform hover:scale-110 duration-200 group"
+                >
+                  <span className="flex items-center gap-2">
+                    Beli Sekarang
+                    <img
+                      src="/toko.webp"
+                      alt="Toko"
+                      className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-125 group-hover:rotate-12"
+                    />
+                  </span>
+                </a>
               </div>
             </div>
           </div>

@@ -41,9 +41,9 @@ export default function Tentang() {
       </div>
       {/* Konten utama: gambar kiri, deskripsi kanan */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mt-8 md:mt-14 w-full max-w-5xl px-2">
-        {/* Gambar kiri */}
+        {/* Gambar (independen) */}
         <div
-          className="flex justify-center md:justify-start w-full md:w-auto"
+          className="flex justify-center w-full mt-8 md:mt-14 px-2"
           data-aos="zoom-in"
           data-aos-duration="1000"
         >
@@ -53,15 +53,15 @@ export default function Tentang() {
             className="w-full max-w-xs md:w-[450px] md:h-[240px] object-cover rounded-3xl border-4 border-[#60a5fa] shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
           />
         </div>
-        {/* Deskripsi kanan */}
+        {/* Deskripsi (independen) */}
         <div
-          className="mt-6 md:mt-0 flex-1 text-left text-white text-base md:text-xl font-medium bg-gradient-to-br from-[#1e4a7a]/90 to-[#60a5fa]/80 rounded-2xl p-4 md:p-8 border-2 border-[#a78bfa] shadow-lg transition-shadow duration-300"
-          style={{ lineHeight: "2" }}
+          className="mt-6  text-white text-base md:text-xl font-medium bg-gradient-to-br from-[#1e4a7a]/90 to-[#60a5fa]/80 rounded-2xl p-4 md:p-8 border-2 border-[#a78bfa] shadow-lg transition-shadow duration-300 w-full max-w-3xl mx-auto"
+          style={{ lineHeight: "2", textAlign: "justify" }}
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="300"
         >
-          <span className="block w-full tracking-wide text-center md:text-left">
+          <span className="block w-full tracking-wide whitespace-normal">
             PT Mitra Kerinci merupakan anak Perusahaan dari PT Rajawali
             Nusantara Indonesia (Persero).
             <br />
