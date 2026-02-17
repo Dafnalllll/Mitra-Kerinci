@@ -61,7 +61,7 @@ export default function Tentang() {
           data-aos-duration="1000"
           data-aos-delay="300"
         >
-          <span className="block w-full tracking-wide">
+          <span className="block w-full tracking-wide text-center md:text-left">
             PT Mitra Kerinci merupakan anak Perusahaan dari PT Rajawali
             Nusantara Indonesia (Persero).
             <br />

@@ -25,7 +25,7 @@ const events = [
 
 export default function Histori() {
   return (
-    <div id="histori" className="py-20 px-2 md:px-0">
+    <div id="histori" className="py-12 px-2 md:px-0 md:-mt-40">
       {/* Judul */}
       <div
         className="flex flex-col items-center mb-16"
@@ -33,7 +33,7 @@ export default function Histori() {
         data-aos-duration="1000"
       >
         <h1
-          className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg"
+          className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg whitespace-nowrap text-center"
           style={{
             fontFamily: "'Pacifico', cursive",
             textShadow: "4px 4px 0 #2b6cb0, 0px 0px 10px #2b6cb0",

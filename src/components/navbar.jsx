@@ -70,7 +70,68 @@ function Navbar() {
     }
   };
 
-  // Jadikan navItems tentang sebagai dropdown
+  // Handler untuk scroll smooth ke section produk
+  const handleProdukClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setDropdown(false);
+    if (location.pathname === "/") {
+      const section = document.getElementById("produk");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById("produk");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+    }
+  };
+
+  // Handler untuk scroll smooth ke section keunggulan
+  const handleKeunggulanClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setDropdown(false);
+    if (location.pathname === "/") {
+      const section = document.getElementById("keunggulan");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById("keunggulan");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+    }
+  };
+
+  const handleSegmentasiClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setDropdown(false);
+    if (location.pathname === "/") {
+      const section = document.getElementById("segmentasi");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById("segmentasi");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+    }
+  };
+
   const navItems = [
     { to: "/", label: "Home" },
     {
@@ -79,9 +140,19 @@ function Navbar() {
         { label: "Tentang", onClick: handleTentangClick, href: "#tentang" },
         { label: "Struktur", onClick: handleStrukturClick, href: "#struktur" },
         { label: "Histori", onClick: handleHistoriClick, href: "#histori" },
+        {
+          label: "Keunggulan",
+          onClick: handleKeunggulanClick,
+          href: "#keunggulan",
+        },
+        {
+          label: "Segmentasi",
+          onClick: handleSegmentasiClick,
+          href: "#segmentasi",
+        },
       ],
     },
-    { to: "/kontak", label: "Kontak" },
+    { to: "#produk", label: "Produk", onClick: handleProdukClick },
   ];
 
   return (
@@ -163,43 +234,63 @@ function Navbar() {
               ></div>
               {/* Dropdown menu */}
               <div className="absolute left-0 mt-66 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4 hidden group-hover:block">
-                {item.dropdown.map((sub, subIdx) => (
-                  <a
-                    key={sub.label}
-                    href={sub.href}
-                    onClick={sub.onClick}
-                    className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
-                      subIdx === 0 ? "rounded-t-xl" : ""
-                    } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
-                  >
-                    {sub.label}
-                  </a>
-                ))}
+                {item.dropdown.map((sub, subIdx) =>
+                  sub.onClick ? (
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      onClick={sub.onClick}
+                      className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                        subIdx === 0 ? "rounded-t-xl" : ""
+                      } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                    >
+                      {sub.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={sub.label}
+                      to={sub.to}
+                      onClick={() => {
+                        setOpen(false);
+                        setDropdown(false);
+                      }}
+                      className={`block px-6 py-3 text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                        subIdx === 0 ? "rounded-t-xl" : ""
+                      } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                    >
+                      {sub.label}
+                    </Link>
+                  ),
+                )}
               </div>
             </li>
           ) : (
             <li key={item.to} className="h-full flex items-center">
-              <Link
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={`group text-lg font-semibold px-4 py-2 rounded transition-all duration-300 relative ${
-                  location.pathname === item.to
-                    ? "text-green-900"
-                    : "text-green-800 hover:text-green-900"
-                } h-full flex items-center`}
-              >
-                <span className="transition-all duration-300 group-hover:tracking-widest">
-                  {item.label}
-                </span>
-                <span
-                  className={`absolute left-0 bottom-0 w-full h-1 rounded bg-yellow-300 transition-all duration-300 ${
+              {item.label === "Produk" ? (
+                <button
+                  onClick={item.onClick}
+                  className={`group text-lg font-semibold px-4 py-2 rounded transition-all duration-300 relative text-green-800 hover:text-green-900 h-full flex items-center cursor-pointer`}
+                  style={{ background: "none", border: "none" }}
+                >
+                  <span className="transition-all duration-300 group-hover:tracking-widest">
+                    {item.label}
+                  </span>
+                </button>
+              ) : (
+                <Link
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={`group text-lg font-semibold px-4 py-2 rounded transition-all duration-300 relative  ${
                     location.pathname === item.to
-                      ? "opacity-100 scale-x-100"
-                      : "opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
-                  }`}
-                  style={{ transformOrigin: "left" }}
-                ></span>
-              </Link>
+                      ? "text-green-900"
+                      : "text-green-800 hover:text-green-900"
+                  } h-full flex items-center`}
+                >
+                  <span className="transition-all duration-300 group-hover:tracking-widest">
+                    {item.label}
+                  </span>
+                </Link>
+              )}
             </li>
           ),
         )}
@@ -233,21 +324,37 @@ function Navbar() {
                 </button>
                 {dropdown && (
                   <div className="flex flex-col w-full">
-                    {item.dropdown.map((sub, subIdx) => (
-                      <a
-                        key={sub.label}
-                        href={sub.href}
-                        onClick={(e) => {
-                          sub.onClick(e);
-                          setDropdown(false);
-                        }}
-                        className={`block px-8 py-3 text-lg text-green-900 hover:bg-green-100 transition-all duration-200 ${
-                          subIdx === 0 ? "rounded-t-xl" : ""
-                        } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
-                      >
-                        {sub.label}
-                      </a>
-                    ))}
+                    {item.dropdown.map((sub, subIdx) =>
+                      sub.onClick ? (
+                        <a
+                          key={sub.label}
+                          href={sub.href}
+                          onClick={(e) => {
+                            sub.onClick(e);
+                            setDropdown(false);
+                          }}
+                          className={`block px-8 py-3 text-lg text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                            subIdx === 0 ? "rounded-t-xl" : ""
+                          } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                        >
+                          {sub.label}
+                        </a>
+                      ) : (
+                        <Link
+                          key={sub.label}
+                          to={sub.to}
+                          onClick={() => {
+                            setOpen(false);
+                            setDropdown(false);
+                          }}
+                          className={`block px-8 py-3 text-lg text-green-900 hover:bg-green-100 transition-all duration-200 ${
+                            subIdx === 0 ? "rounded-t-xl" : ""
+                          } ${subIdx === item.dropdown.length - 1 ? "rounded-b-xl" : ""}`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 )}
               </li>

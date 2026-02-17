@@ -4,6 +4,9 @@ import Tentang from "./tentang.jsx";
 import Struktur from "./struktur.jsx";
 import Histori from "./histori.jsx";
 import Footer from "../components/footer.jsx";
+import Produk from "./produk.jsx";
+import Keunggulan from "./keunggulan.jsx"; 
+import Segmentasi from "./segmentasi.jsx";
 
 export default function Home() {
   return (
@@ -32,10 +35,16 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* Import konten Tentang */}
+        {/* Section Tentang */}
         <Tentang />
         {/* Section Struktur Organisasi */}
         <Struktur />
+        {/* Section Produk */}
+        <Produk />
+        {/* Section Keunggulan */}
+        <Keunggulan /> 
+        {/* Section Segmentasi */}
+        <Segmentasi />
         {/* Section Histori */}
         <Histori />
         {/* Footer */}

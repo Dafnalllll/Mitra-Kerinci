@@ -14,7 +14,12 @@ export default function Struktur() {
       >
         <h1
           className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg tracking-wide"
-          style={{ fontFamily: "'Pacifico', cursive" }} // Tambahkan fontFamily di sini
+          style={{
+            fontFamily: "'Pacifico', cursive",
+            textShadow: "4px 4px 0 #2b6cb0, 0px 0px 10px #2b6cb0",
+            zIndex: 2,
+            position: "relative",
+          }} // Tambahkan fontFamily di sini
         >
           Struktur Organisasi
         </h1>
