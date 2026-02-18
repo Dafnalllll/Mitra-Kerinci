@@ -333,7 +333,7 @@ function Navbar() {
         } md:hidden`}
         style={{
           background:
-            "linear-gradient(120deg, #38b2ac 0%, #68d391 60%, #f6e05e 100%)",
+            "#ffff",
         }}
       >
         <img
