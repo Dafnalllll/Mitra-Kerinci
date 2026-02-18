@@ -55,7 +55,9 @@ const ReviewCard = ({ user, rating, text }) => (
         <span className="text-yellow-400 text-lg drop-shadow">★</span>
         <span className="text-white text-sm">{rating}/5</span>
       </div>
-      <div className="text-white/90 text-base leading-relaxed">{text}</div>
+      <div className="text-white/90 text-base leading-relaxed text-justify">
+        {text}
+      </div>
     </div>
   </div>
 );
