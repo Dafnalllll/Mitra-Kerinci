@@ -33,16 +33,19 @@ export default function Segmentasi() {
           data-aos="fade-left"
           data-aos-delay="200"
         >
-          <p className="mb-3 ">
-            Produk teh Mitra Kerinci telah dipasarkan ke berbagai wilayah di
-            Indonesia. Peta di samping menunjukkan area distribusi utama.
+          <p className="mb-3 whitespace-normal tracking-wide text-justify">
+            Produk teh <b>Mitra Kerinci</b> telah dipasarkan ke berbagai wilayah
+            di Indonesia. Peta di samping menunjukkan area distribusi utama:
           </p>
-          <ul className="list-disc list-inside text-white">
-            <li>Pasar : Sumatera Barat, Jawa Tengah, Jawa Timur</li>
+          <ul className="list-disc list-inside text-white mb-3 whitespace-normal tracking-wide pl-4 text-justify">
+            <li>
+              <span className="font-semibold">Pasar:</span> Sumatera Barat, Jawa
+              Tengah, Jawa Timur
+            </li>
           </ul>
-          <p className="mt-3">
-            Dengan jaringan distribusi yang luas, Mitra Kerinci berkomitmen
-            menghadirkan teh berkualitas ke berbagai penjuru dunia.
+          <p className="whitespace-normal text-justify tracking-wide">
+            Dengan jaringan distribusi yang luas, <b>Mitra Kerinci</b>
+            berkomitmen menghadirkan teh berkualitas ke berbagai penjuru dunia.
           </p>
         </div>
       </div>

@@ -258,7 +258,7 @@ function Navbar() {
               {/* Dropdown menu */}
               {dropdown && (
                 <div
-                  className="absolute left-0 mt-92 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4"
+                  className="absolute left-0 mt-72 w-48 bg-white rounded-xl shadow-lg z-50 transition-all duration-200 pb-4 pt-4"
                   onMouseEnter={() => setDropdown(true)}
                   onMouseLeave={() => setDropdown(false)}
                 >

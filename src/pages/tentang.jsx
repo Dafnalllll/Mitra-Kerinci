@@ -55,7 +55,7 @@ export default function Tentang() {
         </div>
         {/* Deskripsi (independen) */}
         <div
-          className="mt-6  text-white text-base md:text-xl font-medium bg-gradient-to-br from-[#1e4a7a]/90 to-[#60a5fa]/80 rounded-2xl p-4 md:p-8 border-2 border-[#a78bfa] shadow-lg transition-shadow duration-300 w-full max-w-3xl mx-auto"
+          className="mt-6  text-white text-base md:text-xl font-medium p-4 md:p-8 transition-shadow duration-300 w-full max-w-3xl mx-auto"
           style={{ lineHeight: "2", textAlign: "justify" }}
           data-aos="fade-left"
           data-aos-duration="1000"
