@@ -7,6 +7,7 @@ import Footer from "../components/footer.jsx";
 import Produk from "./produk.jsx";
 import Keunggulan from "./keunggulan.jsx"; 
 import Segmentasi from "./segmentasi.jsx";
+import Review from "./review.jsx";
 
 export default function Home() {
   return (
@@ -47,6 +48,8 @@ export default function Home() {
         <Segmentasi />
         {/* Section Histori */}
         <Histori />
+        {/* Section Review */}
+        <Review />
         {/* Footer */}
         <Footer />
       </div>

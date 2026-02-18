@@ -144,6 +144,27 @@ function Navbar() {
     }
   };
 
+    const handleReviewClick = (e) => {
+      e.preventDefault();
+      setOpen(false);
+      setDropdown(false);
+      if (location.pathname === "/") {
+        const section = document.getElementById("review");
+
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          const section = document.getElementById("review");
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 400);
+      }
+    };
+
   // Lock scroll saat menu mobile terbuka
   useEffect(() => {
     if (open) {
@@ -174,6 +195,7 @@ function Navbar() {
           onClick: handleSegmentasiClick,
           href: "#segmentasi",
         },
+        { label: "Review", onClick: handleReviewClick, href: "#review" },
       ],
     },
     { to: "#produk", label: "Produk", onClick: handleProdukClick },
@@ -332,8 +354,7 @@ function Navbar() {
             : "scale-90 opacity-0 pointer-events-none"
         } md:hidden`}
         style={{
-          background:
-            "#ffff",
+          background: "#ffff",
         }}
       >
         <img

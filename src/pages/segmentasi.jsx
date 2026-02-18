@@ -44,8 +44,7 @@ export default function Segmentasi() {
             </li>
           </ul>
           <p className="whitespace-normal text-justify tracking-wide">
-            Dengan jaringan distribusi yang luas, <b>Mitra Kerinci</b>
-            berkomitmen menghadirkan teh berkualitas ke berbagai penjuru dunia.
+            Dengan jaringan distribusi yang luas, Mitra Kerinci berkomitmen menghadirkan teh berkualitas ke berbagai penjuru dunia.
           </p>
         </div>
       </div>
